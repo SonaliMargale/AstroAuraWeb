@@ -1,0 +1,111 @@
+.container {
+  margin-top: 50px;        /* space from top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* center horizontally */
+  text-align: center;      /* center the text itself */
+  color:white;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0px 109px 10px 0px;
+}
+
+p {
+  max-width: 280px;        /* restrict width to create two lines */
+  line-height: 1.5;
+  font-weight: 19px;
+}
+
+
+.time-picker-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.dropdown-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* White Separator Lines */
+.dropdown-content::before,
+.dropdown-content::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: white;
+  z-index: 2;
+}
+
+.dropdown-content::before {
+  top: 40px; /* Top separator (after first row) */
+}
+
+.dropdown-content::after {
+  top: 80px; /* Bottom separator (after second row) */
+}
+
+/* Wheel Columns */
+.wheel {
+  height: 120px; /* 3 rows * 40px */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.wheel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.wheel-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-size: 20px;
+  opacity: 0.5;
+}
+
+.wheel-item.selected {
+  font-weight: bold;
+  font-size: 24px;
+  opacity: 1;
+}
+
+span {
+  font-size: 24px;
+  margin: 0 10px;
+}

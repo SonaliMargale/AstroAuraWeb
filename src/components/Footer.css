@@ -1,0 +1,28 @@
+.footer {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: rgba(255, 255, 255, 1);
+}

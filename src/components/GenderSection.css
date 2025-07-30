@@ -1,0 +1,36 @@
+
+.genderSection{
+    text-align: center;
+    color:white;
+    font-family: sans-serif;
+}
+
+.genderButtons {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+
+}
+
+.btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border:2px solid rgba(255, 255, 255, 0.4);
+    background:rgba(255,255,255,0.1);
+    color:white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(255,255,255,0.2);
+    border:2px solid rgb(195, 49, 49);
+}
+
+h2{
+   
+    font-size: 16px;
+    margin-right: 157px;
+
+}
