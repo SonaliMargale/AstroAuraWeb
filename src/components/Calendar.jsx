@@ -1,65 +1,98 @@
-import dayjs from 'dayjs';
-import { useState } from 'react';
-import './Calendar.css';
+import React, { useState } from 'react';
+import './Calendar.css';  
+
+const months = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const Calendar = () => {
-    const today = dayjs();
-    const [currentMonth, setCurrentMonth] = useState(today.startOf('month'));
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
-    const startDay = currentMonth.startOf('week');
-    const endDay = currentMonth.endOf('month').endOf('week')
+    const year = selectedDate.getFullYear();
+    const month = selectedDate.getMonth();
 
-    const dateArray = [];
-    let date = startDay;
+    const firstDayOfMonth = new Date(year, month, 1);
+    const lastDayOfMonth = new Date(year, month + 1, 0);
 
-    while (date.isBefore(endDay, 'day')) {
-        dateArray.push(date);
-        date = date.add(1, 'day')
-    }
+    const daysInMonth = lastDayOfMonth.getDate();
+    const startDay = firstDayOfMonth.getDay();
 
-    const handlePrevMonth = () => {
-        setCurrentMonth(currentMonth.subtract(1, 'month'))
+    
+    const handleMonthClick = (monthIndex) => {
+        const newDate = new Date(selectedDate);
+        newDate.setMonth(monthIndex);
+        setSelectedDate(newDate);
     };
 
-    const handleNextMonth = () => {
-        setCurrentMonth(currentMonth.add(1, 'month'))
+   
+    const handleDayClick = (day) => {
+        const newDate = new Date(year, month, day);
+        setSelectedDate(newDate);
+    };
+
+ 
+    const getFormattedDate = () => {
+        const options = { month: 'short', day: '2-digit', weekday: 'long' };
+        return selectedDate.toLocaleDateString('en-US', options);
+    };
+
+    
+    const calendarDays = [];
+
+    for (let i = 0; i < startDay; i++) {
+        calendarDays.push(<div key={`empty-${i}`} className="day empty"></div>);
     }
 
-    const [selectedDate, setSelectedDate] = useState(today)
+    for (let day = 1; day <= daysInMonth; day++) {
+        const isSelected = selectedDate.getDate() === day;
+        calendarDays.push(
+            <div
+                key={day}
+                className={`day ${isSelected ? 'selected' : ''}`}
+                onClick={() => handleDayClick(day)}
+            >
+                {day}
+            </div>
+        );
+    }
 
     return (
-        <div className="calendar-container">
-            <div className="month-sidebar">
-                <button onClick={handlePrevMonth}>↑</button>
-                <div className="year">{currentMonth.format('YYYY')}</div>
-                <div className="month">{currentMonth.subtract(2, 'month').format('MMMM')}</div>
-                <div className="month">{currentMonth.subtract(1, 'month').format('MMMM')}</div>
-                <div className="month-active">{currentMonth.format('MMMM')}</div>
-                <div className="month">{currentMonth.add(1, 'month').format('MMMM')}</div>
-                <div className="month">{currentMonth.add(2, 'month').format('MMMM')}</div>
-                <button onClick={handleNextMonth}>↓</button>
-            </div>
-
-            <div className="calendar-main">
-                <div className="selected date">{selectedDate.format('MMM DD, dddd')}</div>
-                <div className="calendar-grid">
-                    {
-                        ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d, i) => (
-                            <div key={i} className="day">{d}</div>
+        <div>
+            <h2 className='header'>Enter your date of Birth</h2>
+            <div className="calendar-container">
+               
+                <div className="sidebar">
+                    <h2 className='year'>{year}</h2>
+                    <div className="month-scroll-list">
+                        {months.map((m, index) => (
+                            <div
+                                key={m}
+                                className={`month-item ${month === index ? 'active' : ''}`}
+                                onClick={() => handleMonthClick(index)}
+                            >
+                                {m}
+                                <div className='|'>|</div>
+                            </div>
                         ))}
-                    {dateArray.map((dateItem, index) => (
-                        <div
-                            key={index}
-                            className={`date ${dateItem.isSame(selectedDate, 'day') ? 'selected' : ''} ${!dateItem.isSame(currentMonth, 'month') ? 'faded' : ''}`}
-                            onClick={() => setSelectedDate(dateItem)}
-                        >
-                            {dateItem.format('D')}
-                        </div>
-                    ))}
+                    </div>
+                </div>
+
+               
+                <div className="calendar">
+                    <h3>{getFormattedDate()}</h3>
+                    <div className="weekdays">
+                        {daysOfWeek.map((day) => (
+                            <div key={day} className="weekday">{day}</div>
+                        ))}
+                    </div>
+                    <div className="calendar-grid">
+                        {calendarDays}
+                    </div>
                 </div>
             </div>
-
         </div>
-    )
-}
+    );
+};
+
 export default Calendar;

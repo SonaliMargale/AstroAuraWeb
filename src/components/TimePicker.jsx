@@ -1,6 +1,6 @@
 
 
-import React, { useState, useRef, useEffect } from 'react';
+import  { useState, useRef, useEffect } from 'react';
 import './TimePicker.css';
 
 const TimePicker = () => {
@@ -50,7 +50,7 @@ const TimePicker = () => {
       if (type === 'period') {
         index = value === 'AM' ? 1 : 2;
       } else {
-        index = parseInt(value) + 1; // +1 for spacer
+        index = parseInt(value) + 1; 
       }
       ref.current.scrollTo({ top: index * itemHeight, behavior: 'auto' });
     };
@@ -62,7 +62,7 @@ const TimePicker = () => {
   }, []);
 
   const wheelColumn = (ref, items, type) => (
-    <div className="wheel" ref={ref} onScroll={() => handleScroll(ref, type)}>
+    <div className="wheel" ref={ref} onScroll={() => handleScroll(ref, type)} >
       <div className="wheel-item spacer" />
       {items.map((item, index) => {
         const itemHeight = 50;
