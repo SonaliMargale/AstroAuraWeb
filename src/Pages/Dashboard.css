@@ -1,6 +1,5 @@
 .container {
-         
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;     
   text-align: center;     
@@ -42,7 +41,7 @@ p {
   font-size: 24px;
 }
 
-.slick-arrow {
+/* .slick-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -55,15 +54,15 @@ p {
   z-index: 10;
       margin-left: 50px;
     padding-top: 392px;
-}
+} */
 
-.slick-prev {
+/* .slick-prev {
   left: 16px;
 }
 
 .slick-next {
   right: 16px;
-}
+} */
 
 .slick-arrow:hover {
   background: rgba(255,255,255,0.25);

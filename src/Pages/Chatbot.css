@@ -1,0 +1,211 @@
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #3b1d3f, #a41358);
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  border: 1px solid rgba(255,255,255,0.1);
+  
+}
+
+.list{
+    text-decoration: none;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fff, #000 70%);
+  box-shadow: 0 0 15px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eclipse {
+  width: 16px;
+  height: 16px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.ai-label {
+  color: #ff5e00;
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-center a:hover {
+  color: #ffd1e3;
+}
+
+.navbar-right .lang-icon {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.sidebarPanel {
+    height: 100%;
+    width: 20%;
+    background-color: rgb(35, 15, 15);
+}
+
+.chatSection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    margin: 8px 0;
+}
+
+/* Align Question Bubbles to Right */
+.list-question {
+    justify-content: flex-end;
+}
+
+/* Align Answer Bubbles to Left */
+.list-answer {
+    justify-content: flex-start;
+}
+
+/* Common Bubble Styling */
+.bubble-question,
+.bubble-answer {
+    max-width: 75%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Question Bubble Style */
+.bubble-question {
+    background-color: white; /* Indigo */
+    color: rgb(73, 61, 61);
+    border-bottom-right-radius: 0;
+}
+
+/* Answer Bubble Style */
+.bubble-answer {
+    background-color: #f3f4f6; /* Light Gray */
+    color: #111827;
+    border-bottom-left-radius: 0;
+}
+
+
+
+
+
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #aa919e, #6d5667);
+    padding: 10px 15px;
+    border-radius: 30px;
+    margin: 0px 0px 30px 180px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    
+
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color:white;
+    font-size: 14px;
+    padding: 0 10px;
+    outline: none;
+}
+
+.search-input::placeholder{
+    color: white;
+}
+
+.icon-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    color: white;
+    font-size: 18px;
+}
+
+.send-button {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border-radius: 50%;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages{
+    color: white;
+}

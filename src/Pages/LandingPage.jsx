@@ -27,7 +27,7 @@ const LandingPage = () => {
                         wisdom into Positive AURA 
                         Astrology offers for your journey.
                     </h2>
-                    <p className='subtext'>Let's start by signing in</p>
+                    <p className='headline-subtext'>Let's start by signing in</p>
                     <button className='google-button' onClick={handleGoogle}>
                         <img src={googleIcon} alt="alt" />
                         continue with Google

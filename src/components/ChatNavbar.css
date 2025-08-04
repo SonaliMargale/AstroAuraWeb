@@ -1,0 +1,85 @@
+.Chatnavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #3b1d3f, #a41358);
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.mainPanel {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100vh;
+}
+
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fff, #000 70%);
+  box-shadow: 0 0 15px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eclipse {
+  width: 16px;
+  height: 16px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.ai-label {
+  color: #ff5e00;
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 0.9rem;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-center a:hover {
+  color: #ffd1e3;
+}
+
+.navbar-right .lang-icon {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
