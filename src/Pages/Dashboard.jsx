@@ -10,7 +10,7 @@ import TimePicker from '../components/TimePicker';
 import { useNavigate } from 'react-router-dom';
 import { useState,useRef } from 'react';
 import backlogo from '../assets/backlogo.png';
-import prevArrow from '../assets/prevArrow.png'
+import prevArrow from '../assets/prevarrow.png'
 import nextarrow from '../assets/nextarrow.png';
 import mandalaIcon from '../assets/mandalaIcon.png';
 
