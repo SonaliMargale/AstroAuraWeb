@@ -6,7 +6,7 @@ import { FiSend } from 'react-icons/fi';
 import { Url } from '../constant';
 import Answersheet from '../components/Answersheet.jsx';
 import CategorySelector from '../components/CategorySelector.jsx';
-import SuggestQuestion from '../components/suggestQuestion';
+import SuggestQuestion from '../components/SuggestQuestion';
 // import ChatNavbar from '../components/ChatNavbar';
 import { FaGlobe } from 'react-icons/fa';
 
