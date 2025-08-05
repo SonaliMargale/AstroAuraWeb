@@ -7,7 +7,7 @@
 }
  
  .Search-Container {
-  background: rgba(227, 133, 133, 0.362);
+ background: rgb(221 208 208 / 14%);
   padding: 10px 15px;
   border-radius: 30px;
   display: flex;
@@ -17,7 +17,7 @@
   margin-top: 40px;
 }
 
-.icon {
+.icon-container {
     background-color: grey;
     height:30px;
     width:30px;

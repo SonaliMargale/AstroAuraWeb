@@ -7,7 +7,8 @@ import { Url } from '../constant';
 import Answersheet from '../components/Answersheet';
 import CategorySelector from '../components/CategorySelector';
 import SuggestQuestion from '../components/suggestQuestion';
-import ChatNavbar from '../components/ChatNavbar';
+// import ChatNavbar from '../components/ChatNavbar';
+import { FaGlobe } from 'react-icons/fa';
 
 
 
@@ -49,10 +50,30 @@ const Chatbot = () => {
     return (
 
            
-        <div>
-            <ChatNavbar />
+        <div className="main-container" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+           <div className='Main-header'>
+             <nav className="Chatnavbar">
+                   <div className="navbar-left">
+                     <div className="logo-circle">
+                       <div className="eclipse" />
+                     </div>
+                     <span className="logo-text">AstroAura</span>
+                     <span className="ai-label">AURA AI</span>
+                   </div>
+                   <div className="navbar-center">
+                     <a href="#">Free Vedic Birth Chart</a>
+                     <a href="#">Pricing</a>
+                     <a href="#">How does it work?</a>
+                     <a href="#">More</a>
+                   </div>
+                   <div className="navbar-right">
+                     <button className="lang-icon"><FaGlobe /></button>
+                   </div>
+                 </nav>
+           </div>
+           
       
-            <div style={{ height: '100vh', display: 'flex', }}>
+            <div className='small-container' style={{ flex:1, display: 'flex', }}>
                 <div className="sidebarPanel">
                    
                 </div>
@@ -89,7 +110,7 @@ const Chatbot = () => {
                     </div>
                     <div className="search-bar">
                         <button className="icon-button paperclip">
-                            <FiPaperclip className="icon" />
+                            <FiPaperclip className="icons" />
                         </button>
 
                         <input
@@ -101,11 +122,11 @@ const Chatbot = () => {
                         />
 
                         <button className="icon-button mic">
-                            <FiMic className="icon" />
+                            <FiMic className="icons" />
                         </button>
 
                         <button onClick={askQuestion} className="send-button">
-                            <FiSend className="icon" />
+                            <FiSend className="icons" />
                         </button>
                     </div>
 

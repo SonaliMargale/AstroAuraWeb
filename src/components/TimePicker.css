@@ -5,12 +5,13 @@
   padding: 20px;
   color: #fff;
   font-family: sans-serif;
+  margin-left: 500px;
 }
 
 label {
   display: block;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .dropdown-box {

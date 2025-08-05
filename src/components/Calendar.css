@@ -21,8 +21,9 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  height: 180px;
+     height: 225px;
   margin-top: 20px;
+  margin-left: 62px;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;  
   -ms-overflow-style: none;  
@@ -62,17 +63,18 @@
 .calendar-container {
   display: flex;
   height: 365px; 
-  width: 65%;
+  width: 60%;
   margin: auto;
   backdrop-filter: blur(20px);
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-   background: rgba(255, 255, 255, 0.05);
+  background: rgb(221 208 208 / 18%);
+  margin-left: 356px;
+  
 
 }
 .calendar {
-  width: 72%;
+  width: 60%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -80,6 +82,9 @@
   background-color: #eecaca;
       border-top-left-radius: 41%;
     border-bottom-left-radius: 41%;
+      border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+        margin-left: 52px; 
 }
 
 
@@ -95,11 +100,10 @@
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  width: 90%;
+  width: 85%;
   text-align: center;
   margin-bottom: 10px;
    color: black;
-   margin-right: 13px;
 }
 
 .weekday {
@@ -108,11 +112,12 @@
 
 
 .calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: 90%;
-  gap: 8px;
-  backdrop-filter: blur(10px);
+  display: grid
+;
+    grid-template-columns: repeat(7, 1fr);
+    width: 85%;
+    gap: 6px;
+    margin-left: 29px;
 }
 
 
@@ -128,6 +133,7 @@
   font-size: 11px;
   border: 1px solid rgb(5 4 4 / 30%);
   transition: all 0.3s ease;
+  color:black
 }
 
 .day:hover {
@@ -153,7 +159,7 @@
 }
 
 .year {
-  margin-right: 10px;
+      margin-left: 171px;
   font-size:18px;
 } 
 

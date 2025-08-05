@@ -4,7 +4,7 @@
   align-items: center;     
   text-align: center;     
   color:white;
-  margin-right: 119px;
+  margin-right: 20px;
 }
 
 .userline {
@@ -41,30 +41,54 @@ p {
   font-size: 24px;
 }
 
-/* .slick-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.15);
+.prevArrow,
+.nextArrow {
+  position: fixed;
+  bottom: 20px;
+  background: none;
   border: none;
-  border-radius: 50%;
-  padding: 12px;
-  color: white;
   cursor: pointer;
-  z-index: 10;
-      margin-left: 50px;
-    padding-top: 392px;
-} */
-
-/* .slick-prev {
-  left: 16px;
+  z-index: 999;
 }
 
-.slick-next {
-  right: 16px;
-} */
-
-.slick-arrow:hover {
-  background: rgba(255,255,255,0.25);
+.prevArrow {
+  left: 20px; 
 }
+
+.nextArrow {
+  right: 20px;
+}
+
+.prevArrow img,
+.nextArrow img {
+  width: 40px;  
+  height: auto;
+}
+
+
+.mandala {
+  position: absolute;
+ right: -160px;
+    top: 70%;
+  transform: translateY(-50%);
+  width: 400px; 
+  opacity: 0.4;
+  filter: drop-shadow(0 0 30px rgba(255,255,255,0.2));
+  pointer-events: none;
+  z-index: 0;
+  animation: rotateMandalalogo 8s linear infinite;
+}
+
+@keyframes rotateMandalalogo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
 

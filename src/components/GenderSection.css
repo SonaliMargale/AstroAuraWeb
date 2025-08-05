@@ -3,6 +3,7 @@
     text-align: center;
     color:white;
     font-family: sans-serif;
+    margin-left: 57px;
 }
 
 .genderButtons {
@@ -26,11 +27,17 @@
 .btn:hover {
     background-color: rgba(255,255,255,0.2);
     border:2px solid rgb(195, 49, 49);
+
 }
 
 h2{
-   
-    font-size: 16px;
-    margin-right: 157px;
+   font-size: 20px;
+    margin-right: 114px;
 
+}
+
+.btn.selected {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
 }

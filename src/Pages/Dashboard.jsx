@@ -5,14 +5,14 @@ import './Dashboard.css'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import { FiArrowLeft,FiArrowRight } from 'react-icons/fi';
 import Calendar from '../components/Calendar';
 import TimePicker from '../components/TimePicker';
 import { useNavigate } from 'react-router-dom';
 import { useState,useRef } from 'react';
 import backlogo from '../assets/backlogo.png';
 import prevArrow from '../assets/prevArrow.png'
-import nextarrow from '../assets/nextarrow.png'
+import nextarrow from '../assets/nextarrow.png';
+import mandalaIcon from '../assets/mandalaIcon.png';
 
 
 
@@ -27,16 +27,16 @@ const Dashboard = () => {
   }
 
   const PrevArrow = (props) => {
-  const { className, onClick } = props;
+  const { onClick } = props;
   return (
-    <button className={className} onClick={onClick}>
+    <button className='prevArrow' onClick={onClick}>
       <img src={prevArrow} alt="alt" />
     </button>
   );
 };
 
 const NextArrow = (props) => {
-  const { className, onClick } = props;
+  const { onClick } = props;
 
   const handleClick = () => {
     if(currentSlide === 2){
@@ -46,7 +46,7 @@ const NextArrow = (props) => {
     }
   }
   return (
-    <button className={className} onClick={handleClick}>
+    <button className='nextArrow' onClick={handleClick}>
       <img src={nextarrow} alt="alt" />
     </button>
   );
@@ -80,6 +80,9 @@ const NextArrow = (props) => {
                     <div className="carousel-slide"><Calendar /></div>
                     <div className="carousel-slide"><TimePicker /></div>
                 </Slider>
+            </div>
+            <div>
+              <img src={mandalaIcon} alt="alt" className='mandala' />
             </div>
            
 

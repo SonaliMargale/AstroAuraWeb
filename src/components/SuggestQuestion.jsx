@@ -15,7 +15,7 @@ const SuggestQuestion = () => {
     <div className="suggest-question-container">
       {questions.map((question, index) => (
         <div key={index} className="question-item">
-          <span>{question}</span>
+          <span className='question'>{question}</span>
           <div className="icon-circle">
             <FiArrowRight />
           </div>

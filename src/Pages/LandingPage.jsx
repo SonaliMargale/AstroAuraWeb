@@ -30,7 +30,7 @@ const LandingPage = () => {
                     <p className='headline-subtext'>Let's start by signing in</p>
                     <button className='google-button' onClick={handleGoogle}>
                         <img src={googleIcon} alt="alt" />
-                        continue with Google
+                        Continue with Google
                     </button>
                 </article>
                  <img  src={mandalaIcon} alt="alt"  className='mandalalogo'/>
