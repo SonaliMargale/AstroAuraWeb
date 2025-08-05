@@ -8,6 +8,7 @@ const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedYear, setSelectedYear] = useState()
 
     const year = selectedDate.getFullYear();
     const month = selectedDate.getMonth();

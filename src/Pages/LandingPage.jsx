@@ -1,6 +1,6 @@
-import googleIcon from '../assets/googleIcon.png';
-import mandalaIcon from '../assets/mandalaIcon.png';
-import blobIcon from '../assets/blobIcon.png';
+import googleIcon from '../assets/GoogleLogo.svg';
+import mandalaIcon from '../assets/Mandala.svg';
+import blobIcon from '../assets/blobIcon.svg';
 import './LandingPage.css';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';

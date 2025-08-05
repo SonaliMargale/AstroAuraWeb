@@ -1,14 +1,14 @@
 import React from 'react';
 import './Navbar.css';
-import auraIcon from '../assets/navbar logo.png';
+import auraIcon from '../assets/NavbarIcon.svg';
 
 const Navbar = () => {
     return (
         <nav className="main-navbar">
-            <div className="main-navbar-content">
+            {/* <div className="main-navbar-content"> */}
                 <img src={auraIcon} alt="AstroAura Logo" className="logo" />
-                <h1 className="brand-name">AstroAura</h1>
-            </div>
+                <span className="brand-name">AstroAura</span>
+            {/* </div> */}
         </nav>
     );
 };
