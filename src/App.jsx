@@ -1,8 +1,8 @@
 
 import { Route,Routes } from 'react-router-dom'
 import './App.css'
-//import '../assets/fonts/fonts.css';
-import '../../AstroAura/src/assets/fonts/font.css'
+
+import '../src/assets/fonts/font.css';
 // import Chatbot from './Pages/Chatbot'
 
 import Dashboard from './Pages/Dashboard'
