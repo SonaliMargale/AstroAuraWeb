@@ -14,7 +14,7 @@ import prevArrow from '../assets/prevarrow.svg'
 import nextarrow from '../assets/nextarrow.svg';
 import mandalaIcon from '../assets/Mandala.svg';
 import atom from '../assets/atom.svg'
-import card from '../assets/card.svg'
+import card from '../assets/Card.svg'
 import heartIcon from '../assets/HeartIcon.svg';
 import gift from '../assets/gift.png'
 import BagIcon from '../assets/BagIcon.svg';
