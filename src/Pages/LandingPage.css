@@ -21,6 +21,8 @@
   box-sizing: border-box;
   gap: 100px;
   z-index: 1;
+  flex-wrap: nowrap; 
+   
 }
 
 
@@ -33,19 +35,31 @@
 .aura-blob img {
     width: 315.9px;  
     height: 323px;
+    animation: spin 10s linear infinite; 
+    transform-origin: center center;    
     
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
 .content-box {
-  max-width: 738px;
+  flex: 0 0 auto;
+      max-width: 738px;
   height:300px;
   text-align: left;
   z-index: 2;
 }
 
 .headline {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 600;
   margin-bottom: 10px;
   line-height: 1.4;
@@ -62,7 +76,7 @@
 .google-button {
   display: inline-flex;
   align-items: center;
-  padding: 35.9px;
+  padding: 25.9px;
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.3); 
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
@@ -73,8 +87,8 @@
   font-size: 25px;
   backdrop-filter: blur(4px); 
   transition: all 0.3s ease;
-  width:609px;
-  height:70px;
+  width:515px;
+  height:41px;
   gap:60px;
   font-family: 'Spartan';
 }
@@ -98,8 +112,8 @@
 
 .mandalalogo {
   position: absolute;
-  left: 1385px;
-    top: 35px;
+  left: 1196px;
+  top: 35px;
   transform: translateY(-50%);
   width: 566px; 
   height:566px;

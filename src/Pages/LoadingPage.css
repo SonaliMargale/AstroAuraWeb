@@ -9,14 +9,20 @@
 }
 .loading {
       margin-top: 64px;
+     
 }
 .loading-msg {
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: 600;
+  font-family: 'Spartan';
+  color:#ffffff;
+  margin-right:-37px;
 }
+
 .mandala-animation {
-  width: 350px;
-  height: 350px;
-  background: url('../assets/mandalaIcon.png') no-repeat center;
+  width: 566px;
+  height: 566px;
+  background: url('../assets/Mandala.svg') no-repeat center;
   background-size: contain;
   animation: rotateMandala 8s linear infinite;
 }

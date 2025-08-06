@@ -13,6 +13,14 @@ import backlogo from '../assets/backlogo.svg';
 import prevArrow from '../assets/prevarrow.svg'
 import nextarrow from '../assets/nextarrow.svg';
 import mandalaIcon from '../assets/Mandala.svg';
+import atom from '../assets/atom.svg'
+import card from '../assets/card.svg'
+import heartIcon from '../assets/HeartIcon.svg';
+import gift from '../assets/gift.png'
+import BagIcon from '../assets/BagIcon.svg';
+import BudhaIcon from '../assets/BuddhaIcon.svg';
+import wheel from '../assets/wheelIcon.svg'
+
 
 
 
@@ -65,8 +73,8 @@ const NextArrow = (props) => {
     return (
         <main>
             <Navbar />
-            <div onClick={gotoLanding} style={{ cursor: 'pointer', fontSize: '24px' }}>
-              <img src={backlogo} alt="alt" />
+            <div onClick={gotoLanding} >
+              <img src={backlogo} alt="alt" className='backlogo'/>
             </div>
             <section className='container'>
                 <h1 className='userline'>Hey vikram,</h1>
@@ -74,19 +82,59 @@ const NextArrow = (props) => {
                     Health. Career. and much more.
                 </p>
             </section>
-            <div className="carousel-container">
+            <div className='combine-wrapper'>
+              <div className="carousel-container">
                 <Slider {...settings} ref={sliderRef}>
                     <div className="carousel-slide"><GenderSection /></div>
                     <div className="carousel-slide"><Calendar /></div>
                     <div className="carousel-slide"><TimePicker /></div>
                 </Slider>
             </div>
+              <div className='image-Bounce'>
+              <div className="floating-item">
+                  <img src={atom} alt="alt" className='halfAtom' />
+                   <div className="shadow"></div>
+              </div>
+              <div className="floating-item">
+                 <img src={card} alt="alt" className='card' />
+                   <div className="shadow"></div>
+              </div>
+              <div className="floating-item">
+                  <img src={heartIcon} alt="alt" className='heartIcon' />
+                <div className="shadow"></div>
+              </div>
+              <div className="floating-item">
+                   <img src={gift} alt="gift" className='gift'/>
+                <div className="shadow"></div>
+              </div>
+               <div className="floating-item">
+                  <img src={atom} alt="alt" className='atom' />
+                   <div className="shadow"></div>
+              </div>
+              <div className="floating-item">
+                   <img src={BagIcon} alt="alt" className='BagIcon' />
+                <div className="shadow"></div>
+              </div>
+                <div className="floating-item">
+                 <img src={BudhaIcon} alt="alt" className='BudhaIcon' />
+                <div className="shadow"></div>
+              </div>
+                <div className="floating-item">
+                  <img src={wheel} alt="alt" className='wheel' />
+                <div className="shadow"></div>
+              </div>
+            </div>
+            </div>
+            
+           
             <div>
               <img src={mandalaIcon} alt="alt" className='mandala' />
             </div>
-           
+           <div className='dashboard-footer'>
+                <Footer />
+           </div>
 
-            <Footer />
+           
         </main>
     )
 }
