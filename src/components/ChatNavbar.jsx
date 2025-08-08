@@ -5,9 +5,6 @@ const ChatNavbar = () => {
   return (
     <nav className="Chatnavbar">
       <div className="navbar-left">
-        <div className="logo-circle">
-          <div className="eclipse" />
-        </div>
         <span className="logo-text">AstroAura</span>
         <span className="ai-label">AURA AI</span>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Chatbot.css';
 import { FiPaperclip } from 'react-icons/fi';
 import { FiMic } from 'react-icons/fi';
@@ -11,176 +11,264 @@ import SuggestQuestion from '../components/SuggestQuestion';
 import { FaGlobe } from 'react-icons/fa';
 import { FaPlus, FaSearch, FaCommentDots, FaCog } from "react-icons/fa";
 import { BsCircleFill } from "react-icons/bs";
-import chartIcon from '../assets/chart.png'
-
+import BirthChart from '../assets/BirthChart.svg'
+// import NavbarIcon from '../assets/NavbarIcon.png';
+import AuraAI from '../assets/AuraAI.svg';
+import LangIcon from '../assets/LangIcon.svg';
+import starlogo from '../assets/star.png'
+import footlogo from '../assets/foot.svg'
 
 
 
 const Chatbot = () => {
 
     const [question, setquestion] = useState('')
-    const [result, setresult] = useState([])
+    const [result, setresult] = useState([]);
+    const [recentHistory, setRecentHistory] = useState(JSON.parse(localStorage.getItem('history')))
+    const [selectedHistory, setSelectedHistory] = useState('')
+    const scrollToAns = useRef();
+    const [isLoading, setisLoading] = useState(false)
 
-    const payload = {
-        "contents": [{
-            "parts": [{ "text": question }]
-        }]
-    }
+
 
     const askQuestion = async () => {
+        if (!question && !selectedHistory) {
+            return false
+        }
+
+        setisLoading(true)
+
+        if (question) {
+            const storedHistory = localStorage.getItem('history');
+
+            if (storedHistory) {
+                let history;
+                try {
+                    history = JSON.parse(storedHistory);
+                } catch (e) {
+                    console.error("Corrupted history in localStorage:", storedHistory);
+                    history = [];
+                }
+                history = [question, ...history];
+                localStorage.setItem('history', JSON.stringify(history));
+                setRecentHistory(history);
+            } else {
+                const history = [question];
+                localStorage.setItem('history', JSON.stringify(history));
+                setRecentHistory(history);
+            }
+
+        }
+
+
+        const payloadData = question ? question : selectedHistory
+        const payload = {
+            "contents": [{
+                "parts": [{ "text": payloadData }]
+            }]
+        }
         let response = await fetch(Url, {
             method: "POST",
             body: JSON.stringify(payload)
         })
-
         response = await response.json();
         let dataString = response.candidates[0].content.parts[0].text;
         dataString = dataString.split("* ");
         dataString = dataString.map((item) => item.trim())
 
         //console.log(response.candidates[0].content.parts[0].text)
+        setisLoading(false)
+        setresult([...result, { type: 'q', text: question ? question : selectedHistory }, { type: 'a', text: dataString }])
+        setquestion('')
+        setTimeout(() => {
+            scrollToAns.current.scrollTop = scrollToAns.current.scrollHeight;
 
-        setresult([...result, { type: 'q', text: question }, { type: 'a', text: dataString }])
-
-
+        }, 500)
     }
-    console.log(result)
+
+    // console.log(result)
+    console.log(recentHistory)
 
     const handleCategorySelect = (cat) => {
         console.log('selected category:', cat.title)
     }
 
-    const recentChats = [
-        "How can I increase the number of...",
-        "What’s the best approach to...",
-        "What’s the best approach to..."
-    ];
+    const isEnter = (event) => {
+        if (event.key == 'Enter') {
+            askQuestion()
+        }
+    }
+
+    useEffect(() => {
+        console.log(selectedHistory)
+        if (selectedHistory) {
+        setquestion(selectedHistory); // fill input
+        askQuestion(selectedHistory); // trigger answer
+    }
+    }, [selectedHistory])
+
+
 
     return (
-
-
         <div className="main-container" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
             <div className='Main-header'>
                 <nav className="Chatnavbar">
                     <div className="navbar-left">
                         <div className="logo-circle">
-                            <div className="eclipse" />
+                            <img src={starlogo} alt="alt" />
                         </div>
                         <span className="logo-text">AstroAura</span>
-                        <span className="ai-label">AURA AI</span>
+                        <img className='ai-label' src={AuraAI} alt="alt" />
                     </div>
                     <div className="navbar-center">
                         <a href="#">Free Vedic Birth Chart</a>
                         <a href="#">Pricing</a>
                         <a href="#">How does it work?</a>
-                        <a href="#">More</a>
-                    </div>
-                    <div className="navbar-right">
-                        <button className="lang-icon"><FaGlobe /></button>
+                        <button className="lang-icon">
+                            <img src={LangIcon} alt="alt" />
+                        </button>
                     </div>
                 </nav>
             </div>
 
 
             <div className='small-container' style={{ flex: 1, display: 'flex', }}>
-                <div className="sidebarPanel">
-                    <button className="ask-button">
-                        Ask anything from AURA AI <FaPlus />
-                    </button>
+                <div className='Main-sidebar'>
+                    <div className="sidebarPanel">
+                        <button className="ask-button">
+                            Ask anything from AURA AI <FaPlus />
+                        </button>
 
-                    <div className="birth-chart">
-                        <img
-                            src={chartIcon}
-                            alt="Birth Chart"
-                        />
-                        <p>Vikram’s Birth Chart</p>
-                    </div>
+                        <div className='inner-bar'>
+                            <div className="birth-chart">
+                                <img
+                                    src={BirthChart}
+                                    alt="Birth Chart"
+                                />
+                                <p>Vikram’s Birth Chart</p>
+                            </div>
 
-                    <div className="search-box">
-                        <FaSearch className="search-icon" />
-                        <input type="text" placeholder="Search" />
-                    </div>
+                            <div className="search-box">
+                                <FaSearch className="search-icon" />
+                                <input type="text" placeholder="Search" />
+                            </div>
 
-                    <div className="recent-chats">
-                        <h4>Recent Chats</h4>
-                        <ul>
-                            {recentChats.map((chat, i) => (
-                                <li key={i}>
-                                    <FaCommentDots />
-                                    <span className='chat'>{chat}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                            <div className="recent-chats">
+                                <h4>Recent Chats</h4>
+                                <ul>
+                                    {
+                                        recentHistory && recentHistory?.slice(0, 3).map((item, index) => (
+                                            <li className='chat-text'
+                                                key={index}
+                                                onClick={() => {
+                                                    setSelectedHistory(item);
+                                                    askQuestion()
+                                                }
 
-                    <div className="user-footer">
-                        <div className="user-status">
-                            <BsCircleFill className="status-icon" color="#ff3b81" />
-                            <span>Vikram Varshney</span>
+                                                }>{item}</li>
+                                        ))
+                                    }
+                                </ul>
+
+                                {/* <ul>
+                                    {recentChats.map((chat, i) => (
+                                        <li key={i}>
+                                            <FaCommentDots />
+                                            <span className='chat'>{chat}</span>
+                                        </li>
+                                    ))}
+                                </ul> */}
+                            </div>
                         </div>
-                        <button className="settings-button">
-                            <FaCog />
+
+
+
+                        <div className="user-footer">
+                            <div className="user-status">
+                                <BsCircleFill className="status-icon" color="#ff3b81" />
+                                <span>Vikram Varshney</span>
+                            </div>
+                            <button className="settings-button">
+                                <FaCog />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div className="chatSection">
+                    <div className='messages' ref={scrollToAns}>
+                        <ul>
+                            {
+                                result.map((item, index) => (
+                                    item.type == 'q' ? (
+                                        <li key={index + Math.random()} className='list-question'>
+                                            <div className='bubble-question'>
+                                                <Answersheet ans={item.text} totalResult={1} type={item.type} index={index} />
+                                            </div>
+                                        </li>
+                                    ) : (
+                                        item.text.map((ansItem, ansIndex) => (
+                                            <li key={index + Math.random()} className='list-answer'>
+                                                <div className='bubble-answer'>
+                                                    <Answersheet ans={ansItem} totalResult={item.length} type={item.type} index={ansIndex} />
+                                                </div>
+
+                                            </li>
+                                        ))
+                                    )
+                                ))
+                            }
+                            {
+                                isLoading && (
+                                    <div className="loader-bubble">
+                                        <span className="loader-text">AURA AI is analyzing your question</span>
+                                        <img src={footlogo} alt="alt" />
+                                    </div>
+                                )
+                            }
+                        </ul>
+
+
+                        {
+                             !question && !selectedHistory && !isLoading && result.length === 0 &&(
+                                <>
+                                    <CategorySelector onSelect={handleCategorySelect} />
+                                    <SuggestQuestion />
+                                </>
+                            )
+                        }
+
+
+                    </div>
+                    <div className="search-bar">
+                        <button className="icon-button paperclip">
+                            <FiPaperclip className="icons" />
+                        </button>
+
+                        <input
+                            type="text"
+                            placeholder="Ask your Question"
+                            className="search-input"
+                            value={question}
+                            onKeyDown={isEnter}
+                            onChange={(e) => setquestion(e.target.value)}
+                        />
+
+                        <button className="icon-button mic">
+                            <FiMic className="icons" />
+                        </button>
+
+                        <button onClick={askQuestion} className="send-button">
+                            <FiSend className="icons" />
                         </button>
                     </div>
-                </div>
-            
-
-            <div className="chatSection">
-                <div className='messages'>
-                    <ul>
-                        {
-                            result.map((item, index) => (
-                                item.type == 'q' ? (
-                                    <li key={index + Math.random()} className='list-question'>
-                                        <div className='bubble-question'>
-                                            <Answersheet ans={item.text} totalResult={1} type={item.type} index={index} />
-                                        </div>
-                                    </li>
-                                ) : (
-                                    item.text.map((ansItem, ansIndex) => (
-                                        <li key={index + Math.random()} className='list-answer'>
-                                            <div className='bubble-answer'>
-                                                <Answersheet ans={ansItem} totalResult={item.length} type={item.type} index={ansIndex} />
-                                            </div>
-
-                                        </li>
-                                    ))
-                                )
-                            ))
-                        }
-                    </ul>
-
-
-                    <CategorySelector onSelect={handleCategorySelect} />
-                    <SuggestQuestion />
 
                 </div>
-                <div className="search-bar">
-                    <button className="icon-button paperclip">
-                        <FiPaperclip className="icons" />
-                    </button>
-
-                    <input
-                        type="text"
-                        placeholder="Ask your Question"
-                        className="search-input"
-                        value={question}
-                        onChange={(e) => setquestion(e.target.value)}
-                    />
-
-                    <button className="icon-button mic">
-                        <FiMic className="icons" />
-                    </button>
-
-                    <button onClick={askQuestion} className="send-button">
-                        <FiSend className="icons" />
-                    </button>
-                </div>
-
             </div>
         </div>
-        </div>
-       
+
 
     )
 }

@@ -28,7 +28,7 @@
   gap: 10px;
 }
 
-.logo-circle {
+/* .logo-circle {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -44,7 +44,7 @@
   height: 16px;
   background: #111;
   border-radius: 50%;
-}
+} */
 
 .logo-text {
   font-weight: bold;
