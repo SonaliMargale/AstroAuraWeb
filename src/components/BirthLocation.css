@@ -19,13 +19,13 @@
 
 .icon-container {
     background-color: grey;
-    height:30px;
-    width:30px;
-    border-radius: 15px;
+    height:40px;
+    width:40px;
+    border-radius: 18px;
 }
-.search-icon {
+.searchicon {
   color: white;
-  font-size: 20px;
+  font-size: 28px;
   margin-right: 10px;
   padding: 5px;
 }

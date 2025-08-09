@@ -8,7 +8,7 @@ const LoadingPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Simulate API Call / AI Chart Generation Delay
+    // Simulate API Call  AI Chart Generation Delay
     const timer = setTimeout(() => {
       navigate('/chatbot');  
     }, 3000);  // 3 seconds loading
@@ -27,7 +27,10 @@ const LoadingPage = () => {
          <img src={foot} alt="alt" />
         </div>
       </div>
-      <Footer />
+      <div className='loader-footer'>
+       <Footer/>
+      </div>
+     
     </main>
   );
 };

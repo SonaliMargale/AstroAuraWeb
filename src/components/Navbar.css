@@ -1,10 +1,12 @@
 .main-navbar {
-   display: flex;
-  justify-content: center;
-  align-items: center; /* optional, for vertical centering */
-  width: 100%;
-  position: relative;  /* or absolute/fixed */
-  top: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* optional, for vertical centering */
+    width: 100%;
+    position: relative;
+    /* or absolute/fixed */
+    top: 21px;
 }
 
 /* .main-navbar-content {
@@ -28,10 +30,11 @@
     font-weight: 700; */
 
     color: var(--White, #FFF);
-text-align: center;
-font-family: 'League Spartan';
-font-size: 30px;
-font-style: normal;
-font-weight: 700;
-line-height: 120%; /* 36px */
+    text-align: center;
+    font-family: 'Spartan';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    /* 36px */
 }

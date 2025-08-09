@@ -20,7 +20,7 @@
 
 }
 
-p {
+.container p {
   max-width: 730px;
   line-height: 1.5;
   font-weight: 300;
@@ -126,7 +126,7 @@ p {
   gap: 30px;
   position: relative;
   z-index: 1;
-  top: -290px;
+  top: -260px;
   pointer-events: none;
 }
 
@@ -279,5 +279,5 @@ p {
 
 .dashboard-footer {
   position: relative;
-  top: -300px;
+  top: -234px;
 }

@@ -20,7 +20,7 @@ const BirthLocation = () => {
         <div className="main-Search-Container">
         <div className="Search-Container">
             <div className="icon-container">
-                 <FiSearch className="search-icon" />
+                 <FiSearch className="searchicon" />
             </div>
            
             <input

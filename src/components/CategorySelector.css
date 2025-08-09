@@ -1,21 +1,19 @@
-
- .category-selector {
+.category-selector {
   padding: 20px;
   color: #333;
-  margin-top:50px;
 }
 
 .heading {
-  font-size: 22px;
-  margin-bottom: 10px;
-  text-align: center;
-  color: white;
-  margin-left:360px;
+  font-size: 30px;
+    margin-top: 6px;
+    text-align: center;
+    color: white;
+    margin-left: 359px;
 }
 
 .subtext {
   font-size: 14px;
-  max-width: 500px;
+  max-width: 404px;
   margin: 0 auto 30px auto;
   text-align: center;
   color: white;
@@ -24,8 +22,10 @@
 .category-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px; /* reduced from 16px */
-  row-gap: 10px; /* smaller vertical space */
+  gap: 12px;
+  /* reduced from 16px */
+  row-gap: 10px;
+  /* smaller vertical space */
   justify-items: center;
   align-items: start;
   max-width: 800px;
@@ -37,8 +37,10 @@
   color: #333;
   border-radius: 12px;
   padding: 12px 10px;
-  width: 150px; /* reduced from 170px */
-  height: 95px; /* reduced height slightly */
+ width: 168px;
+  /* reduced from 170px */
+  height: 95px;
+  /* reduced height slightly */
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
@@ -48,7 +50,7 @@
 }
 
 .category-tile.selected {
-  background: linear-gradient(135deg, #f54ea2, #ff7676);
+  background: linear-gradient(90deg, #ED0687 0%, #FE6C0F 100%);
   color: white;
 }
 
@@ -68,10 +70,10 @@
 }
 
 .category-tile h4 {
-     margin: 0;
-    font-size: 18px;
-    max-width: 14px;
-    font-weight: 600;
+  margin: 0;
+  font-size: 18px;
+  max-width: 14px;
+  font-weight: 500;
 }
 
 .category-tile p {

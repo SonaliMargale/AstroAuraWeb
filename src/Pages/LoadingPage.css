@@ -38,3 +38,8 @@
   0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
+
+.loader-footer{
+  position: relative;
+  top:87px;
+}

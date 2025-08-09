@@ -7,16 +7,15 @@ import { Url } from '../constant';
 import Answersheet from '../components/Answersheet.jsx';
 import CategorySelector from '../components/CategorySelector.jsx';
 import SuggestQuestion from '../components/SuggestQuestion';
-// import ChatNavbar from '../components/ChatNavbar';
-import { FaGlobe } from 'react-icons/fa';
-import { FaPlus, FaSearch, FaCommentDots, FaCog } from "react-icons/fa";
+import { FaPlus, FaSearch, FaCog } from "react-icons/fa";
 import { BsCircleFill } from "react-icons/bs";
-import BirthChart from '../assets/BirthChart.svg'
-// import NavbarIcon from '../assets/NavbarIcon.png';
+import BirthChart from '../assets/BirthChart.svg';
 import AuraAI from '../assets/AuraAI.svg';
 import LangIcon from '../assets/LangIcon.svg';
 import starlogo from '../assets/star.png'
 import footlogo from '../assets/foot.svg'
+import squarelogo from '../assets/square.png';
+import ProfileIcon from '../assets/ProfileIcon.png'
 
 
 
@@ -124,6 +123,7 @@ const Chatbot = () => {
                         <a href="#">Free Vedic Birth Chart</a>
                         <a href="#">Pricing</a>
                         <a href="#">How does it work?</a>
+                        <a href="#">How does it work?</a>
                         <button className="lang-icon">
                             <img src={LangIcon} alt="alt" />
                         </button>
@@ -158,14 +158,18 @@ const Chatbot = () => {
                                 <ul>
                                     {
                                         recentHistory && recentHistory?.slice(0, 3).map((item, index) => (
-                                            <li className='chat-text'
+                                            <li className='chat-item'
                                                 key={index}
                                                 onClick={() => {
                                                     setSelectedHistory(item);
                                                     askQuestion()
-                                                }
-
-                                                }>{item}</li>
+                                                }}
+                                                
+                                                >
+                                                    <img src={squarelogo} alt="alt" className="chat-icon"/>
+                                                    <span className="chat-text">{item}</span>
+                                                    
+                                                    </li>
                                         ))
                                     }
                                 </ul>
@@ -185,8 +189,8 @@ const Chatbot = () => {
 
                         <div className="user-footer">
                             <div className="user-status">
-                                <BsCircleFill className="status-icon" color="#ff3b81" />
-                                <span>Vikram Varshney</span>
+                                <img src={ProfileIcon} alt="alt" className='status-icon' />
+                                <span className='username'>Vikram Varshney</span>
                             </div>
                             <button className="settings-button">
                                 <FaCog />
