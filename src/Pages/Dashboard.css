@@ -126,7 +126,7 @@
   gap: 30px;
   position: relative;
   z-index: 1;
-  top: -260px;
+  top: -280px;
   pointer-events: none;
 }
 
@@ -279,5 +279,5 @@
 
 .dashboard-footer {
   position: relative;
-  top: -234px;
+  top: -298px;
 }
